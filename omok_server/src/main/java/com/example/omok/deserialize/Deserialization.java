@@ -19,7 +19,7 @@ public class Deserialization {
     }
 
     // 빅엔디안
-    private Integer bytes2Int(byte[] byteArray, int offset) {
+    public Integer bytes2Int(byte[] byteArray, int offset) {
         // 바이트 배열을 숫자로 변환
         return ((byteArray[offset]   & 0xFF) << 24) |
                 ((byteArray[offset+1] & 0xFF) << 16) |

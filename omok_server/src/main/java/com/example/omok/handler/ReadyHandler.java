@@ -6,7 +6,7 @@ import com.example.omok.packet.packets.ReadyPacket;
 public class ReadyHandler implements EventHandler {
     private final ReadyPacket readyPacket;
 
-    public ReadyHandler(PacketType packetType) {
+    public ReadyHandler() {
         this.readyPacket = new ReadyPacket();
     }
 
