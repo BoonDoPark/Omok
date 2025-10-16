@@ -10,31 +10,6 @@ public class Serialization {
     private static final Integer INTEGER_BYTE_SIZE = 4;
     private static final Integer STRING_BYTE_SIZE = 32;
 
-    public static byte[] serializeReadypacket(ReadyPacket readyPacket) {
-        byte[] byteArray = new byte[
-            INTEGER_BYTE_SIZE
-            + readyPacket.getUserId().length()
-            + STRING_BYTE_SIZE
-        ];
-
-        System.arraycopy(
-                int2Bytes(readyPacket.getPacketType().getPacketType()),
-                0,
-                byteArray,
-                INTEGER_BYTE_SIZE,
-                INTEGER_BYTE_SIZE
-        );
-        System.arraycopy(
-                readyPacket.getUserId().getBytes(),
-                0,
-                byteArray,
-                INTEGER_BYTE_SIZE,
-                readyPacket.getUserId().length()
-        );
-
-        return byteArray;
-    }
-
     public byte[] serializePacket(Packet packet) {
         byte[] byteArray = new byte[
             6 * INTEGER_BYTE_SIZE + packet.getPlayerId().length()
@@ -70,11 +45,7 @@ public class Serialization {
         return byteArray;
     }
 
-    public byte[] serializeStatus(Integer statusCode) {
-        return int2Bytes(statusCode);
-    }
-
-    private static byte[] int2Bytes(int value) {
+    public byte[] int2Bytes(int value) {
         return new byte[]{
                 (byte) (value >> 24),
                 (byte) (value >> 16),

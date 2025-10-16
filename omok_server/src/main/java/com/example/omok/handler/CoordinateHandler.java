@@ -6,7 +6,7 @@ import com.example.omok.packet.packets.CoordinatePacket;
 public class CoordinateHandler implements EventHandler {
     private final CoordinatePacket coordinatePacket;
 
-    public CoordinateHandler(PacketType packetType) {
+    public CoordinateHandler() {
         this.coordinatePacket = new CoordinatePacket();
     }
 
